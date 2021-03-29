@@ -60,7 +60,7 @@ function deleteItem(e) {
 function checkBoxClicked(e) {
     const itemName = e.classList[0]
     const containerDiv = document.querySelector("div." + itemName)
-    const textValue = containerDiv.querySelector("input.itemText").nodeValue
+    const textValue = containerDiv.querySelector("input.itemText").value
     const divActiveItems = document.querySelector("#activeItems")
     const divInactiveItems = document.querySelector("#inactiveItems")
 
