@@ -68,10 +68,10 @@ function getSavedItems() {
     let cookiesList = cookie.split(";")
 
     cookiesList.map(item => {
-        const cookieName = item.split("=")[0]
-        const cookieValue = item.split("=")[1]
+        const cookieName = item.split("=")[0].trim()
+        const cookieValue = item.split("=")[1].trim()
 
-        let pattern = new RegExp(/text\d/)
+        let pattern = new RegExp(/item\d/)
         console.log(pattern.test(cookieName), cookieName)
         if (pattern.test(cookieName)) addItem(cookieName, cookieValue)
     })
