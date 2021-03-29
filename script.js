@@ -108,6 +108,7 @@ function getSavedItems() {
 }
 
 function setCookies(itemName, itemText, itemStatus, exdays) {
+    console.log("")
     setCookie(itemName, itemText, exdays)
     setCookie(itemName + "Status", itemStatus, exdays)
 }
@@ -118,5 +119,5 @@ function setCookie(cname, cvalue, cstatus, exdays) {
     let expires = "expires=" + d.toUTCString()
     let cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
     document.cookie = cookie
-    console.log(cookie, document.cookie)
+    console.log(cookie)
 }
