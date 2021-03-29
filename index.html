@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button onclick="alert(document.cookie)">Get cookies</button>
+
+    <section id="activeList">
+        <button onclick="addItem()">+</button>
+        <div id="activeItems"></div>
+    </section>
+
+    <section id="inactiveList">
+        <div id="inactiveItems"></div>
+    </section>
+
+    <script id="plaintext" src="input-file.txt" type="text/plain"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

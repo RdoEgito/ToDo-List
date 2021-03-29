@@ -1,0 +1,45 @@
+input[type=text] {
+    border: 0;
+    border-bottom: 3px solid #ccc;
+    width: 90%;
+    background-color: rgba(0, 139, 139, 0);
+    color: whitesmoke;
+    font: 1.5em "Lucida Console", monospace;
+    padding: 3px 0;
+}
+
+body {
+    margin: auto;
+    width: 50%;
+    padding: 20px 0;
+}
+
+#activeList,
+#inactiveList {
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#activeList {
+    background-color: darkcyan;
+    margin: 10px 0;
+}
+
+#inactiveList {
+    background-color: coral;
+}
+
+#activeItems,
+#inactiveItems {
+    padding: 10px 0;
+}
+
+.item {
+    padding: 5px 0;
+}
+
+.inactive {
+    color: gray;
+    background-color: gray;
+    text-decoration: line-through;
+}
