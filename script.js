@@ -43,6 +43,6 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
     let expires = "expires=" + d.toUTCString()
     let cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
-    document.cookie += cookie
+    document.cookie = cookie
     console.log(cookie)
 }
