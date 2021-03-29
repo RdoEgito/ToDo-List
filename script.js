@@ -90,8 +90,8 @@ function getSavedItems() {
         const cookieName = item.split("=")[0].trim()
         const cookieValue = item.split("=")[1].trim()
 
-        let patternItem = new RegExp(/item\d/)
-        let patternStatus = new RegExp(/itemStatus\d/)
+        let patternItem = new RegExp(/item\d+$/)
+        let patternStatus = new RegExp(/item\d+Status$/)
         console.log(cookieName, patternItem.test(cookieName), patternStatus.test(cookieName))
         if (patternItem.test(cookieName)) {
             cookieItem = cookieName
