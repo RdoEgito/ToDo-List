@@ -47,6 +47,7 @@ function getItemName(items) {
 function deleteItem(e) {
     e.parentNode.remove()
     items.splice(items.indexOf(e.classList[0]), 1)
+    setCookie(e.classList[0], "", -1)
 }
 
 function checkBoxClicked(e) {
