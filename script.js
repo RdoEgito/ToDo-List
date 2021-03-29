@@ -9,7 +9,7 @@ function addItem() {
 
     const textBox = document.createElement("input")
     textBox.classList.add(itemName)
-    textBox.setAttribute("onblur", "setCookie('itemName', this.classList[0], 800)")
+    textBox.setAttribute("onchange", "setCookie(this.classList[0], this.value, 800)")
     textBox.setAttribute("type", "text")
 
     const divItem = document.createElement("div")
@@ -43,5 +43,5 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
     let expires = "expires=" + d.toUTCString()
     let cookie = cname + "=" + cvalue + ";" + expires + "path=/"
-    document.cookie = cookie
+    document.cookie += cookie
 }
