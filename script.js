@@ -72,6 +72,7 @@ function getSavedItems() {
         const cookieValue = item.split("=")[1]
 
         let pattern = new RegExp(/text\d/)
+        console.log(pattern.test(cookieName), cookieName)
         if (pattern.test(cookieName)) addItem(cookieName, cookieValue)
     })
 }
