@@ -113,6 +113,8 @@ function clearAllCookies() {
     cookies.map(c => {
         let cookieName = c.split("=")[0]
         setCookie(cookieName, "", -1)
+
+        console.log("Deleted cookie name: ", cookieName)
     })
 }
 
