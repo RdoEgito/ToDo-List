@@ -44,4 +44,5 @@ function setCookie(cname, cvalue, exdays) {
     let expires = "expires=" + d.toUTCString()
     let cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
     document.cookie += cookie
+    console.log(cookie)
 }
