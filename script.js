@@ -92,7 +92,7 @@ function getSavedItems() {
 
         let patternItem = new RegExp(/item\d/)
         let patternStatus = new RegExp(/itemStatus\d/)
-            // console.log(patternItem.test(cookieName), cookieName)
+        console.log(cookieName, patternItem.test(cookieName), patternStatus.test(cookieName))
         if (patternItem.test(cookieName)) {
             cookieItem = cookieName
             cookieText = cookieValue
@@ -110,5 +110,5 @@ function setCookie(cname, cvalue, cstatus, exdays) {
     let expires = "expires=" + d.toUTCString()
     let cookie = cname + "=" + cvalue + ";" + cname + "Status=" + cstatus + ";" + expires + ";path=/"
     document.cookie = cookie
-    console.log(cookie)
+        // console.log(cookie)
 }
