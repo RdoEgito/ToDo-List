@@ -18,7 +18,7 @@ function addItem(itemName, itemValue, itemStatus) {
     textBox.classList.add("itemText")
     textBox.setAttribute("type", "text")
     textBox.setAttribute("value", itemValue)
-    textBox.setAttribute("oninput", "setCookies(this.classList[0], this.value, this.classList[1], 800)")
+    textBox.setAttribute("oninput", "setCookies(this.classList[0], this.value, this.classList[1], 100)")
 
     const closeButton = document.createElement("button")
     closeButton.classList.add(itemName)
@@ -37,7 +37,12 @@ function addItem(itemName, itemValue, itemStatus) {
 
     const divActiveItems = document.querySelector("#activeItems")
     const divInactiveItems = document.querySelector("#inactiveItems")
-    itemStatus == "active" ? divActiveItems.appendChild(divItem) : divInactiveItems.appendChild(divItem)
+
+    if (itemStatus == "active") divActiveItems.appendChild(divItem)
+    else {
+        checkBox.checked = true
+        divInactiveItems.appendChild(divItem)
+    }
 
     items.push(itemName)
     items.sort()
@@ -72,14 +77,14 @@ function checkBoxClicked(e) {
             item.classList.remove("active")
         })
         divInactiveItems.appendChild(containerDiv)
-        setCookies(itemName, textValue, "inactive", 800)
+        setCookies(itemName, textValue, "inactive", 100)
     } else {
         document.querySelectorAll("." + itemName).forEach(item => {
             item.classList.add("active")
             item.classList.remove("inactive")
         })
         divActiveItems.appendChild(containerDiv)
-        setCookies(itemName, textValue, "active", 800)
+        setCookies(itemName, textValue, "active", 100)
     }
 }
 
