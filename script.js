@@ -4,7 +4,7 @@ function addItem(itemName, itemValue, itemStatus) {
     items.sort()
     itemName = itemName || getItemName(items)
     itemValue = itemValue || ""
-    itemStatus = itemStatus || ""
+    itemStatus = itemStatus || "active"
 
     const checkBox = document.createElement("input")
     checkBox.classList.add(itemName)
@@ -64,11 +64,17 @@ function checkBoxClicked(e) {
     const divInactiveItems = document.querySelector("#inactiveItems")
 
     if (e.checked) {
-        document.querySelectorAll("." + itemName).forEach(item => item.classList.add("inactive"))
+        document.querySelectorAll("." + itemName).forEach(item => {
+            item.classList.add("inactive")
+            item.classList.remove("active")
+        })
         divInactiveItems.appendChild(containerDiv)
         setCookie(itemName, textValue, "inactive", 800)
     } else {
-        document.querySelectorAll("." + itemName).forEach(item => item.classList.remove("inactive"))
+        document.querySelectorAll("." + itemName).forEach(item => {
+            item.classList.add("active")
+            item.classList.remove("inactive")
+        })
         divActiveItems.appendChild(containerDiv)
         setCookie(itemName, textValue, "active", 800)
     }
