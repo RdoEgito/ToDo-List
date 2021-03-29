@@ -18,7 +18,7 @@ function addItem(itemName, itemValue, itemStatus) {
     textBox.classList.add("itemText")
     textBox.setAttribute("type", "text")
     textBox.setAttribute("value", itemValue)
-    textBox.setAttribute("oninput", "setCookie(this.classList[0], this.value, this.classList[1], 800)")
+    textBox.setAttribute("oninput", "setCookies(this.classList[0], this.value, this.classList[1], 800)")
 
     const closeButton = document.createElement("button")
     closeButton.classList.add(itemName)
@@ -53,7 +53,7 @@ function getItemName(items) {
 function deleteItem(e) {
     e.parentNode.remove()
     items.splice(items.indexOf(e.classList[0]), 1)
-    setCookie(e.classList[0], "", -1)
+    setCookies(e.classList[0], "", -1)
 }
 
 function checkBoxClicked(e) {
@@ -69,14 +69,14 @@ function checkBoxClicked(e) {
             item.classList.remove("active")
         })
         divInactiveItems.appendChild(containerDiv)
-        setCookie(itemName, textValue, "inactive", 800)
+        setCookies(itemName, textValue, "inactive", 800)
     } else {
         document.querySelectorAll("." + itemName).forEach(item => {
             item.classList.add("active")
             item.classList.remove("inactive")
         })
         divActiveItems.appendChild(containerDiv)
-        setCookie(itemName, textValue, "active", 800)
+        setCookies(itemName, textValue, "active", 800)
     }
 }
 
@@ -104,11 +104,16 @@ function getSavedItems() {
     })
 }
 
+function setCookies(itemName, itemText, itemStatus, exdays) {
+    setCookie(itemName, itemText, exdays)
+    setCookie(itemName + "Status", itemStatus, exdays)
+}
+
 function setCookie(cname, cvalue, cstatus, exdays) {
     let d = new Date()
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
     let expires = "expires=" + d.toUTCString()
-    let cookie = cname + "=" + cvalue + ";" + cname + "Status=" + cstatus + ";" + expires + ";path=/"
+    let cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
     document.cookie = cookie
     console.log(cookie, document.cookie)
 }
