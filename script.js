@@ -18,7 +18,7 @@ function addItem(itemName, itemValue, itemStatus) {
     textBox.classList.add("itemText")
     textBox.setAttribute("type", "text")
     textBox.setAttribute("value", itemValue)
-    textBox.setAttribute("oninput", "setCookie(this.classList[0], this.value, 800)")
+    textBox.setAttribute("oninput", "setCookie(this.classList[0], this.value, this.classList[1], 800)")
 
     const closeButton = document.createElement("button")
     closeButton.classList.add(itemName)
