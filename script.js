@@ -92,7 +92,7 @@ function getSavedItems() {
 
         let patternItem = new RegExp(/item\d+$/)
         let patternStatus = new RegExp(/item\d+Status$/)
-        console.log(cookieName, patternItem.test(cookieName), patternStatus.test(cookieName))
+        console.log(cookieName, cookieValue, patternItem.test(cookieName), patternStatus.test(cookieName))
         if (patternItem.test(cookieName)) {
             cookieItem = cookieName
             cookieText = cookieValue
