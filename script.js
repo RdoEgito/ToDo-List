@@ -36,7 +36,8 @@ function addItem(itemName, itemValue, itemStatus) {
     divItem.appendChild(closeButton)
 
     const divActiveItems = document.querySelector("#activeItems")
-    divActiveItems.appendChild(divItem)
+    const divInactiveItems = document.querySelector("#inactiveItems")
+    itemStatus == "active" ? divActiveItems.appendChild(divItem) : divInactiveItems.appendChild(divItem)
 
     items.push(itemName)
     items.sort()
@@ -62,6 +63,8 @@ function checkBoxClicked(e) {
     const textValue = containerDiv.querySelector("input.itemText").nodeValue
     const divActiveItems = document.querySelector("#activeItems")
     const divInactiveItems = document.querySelector("#inactiveItems")
+
+    console.log(textValue)
 
     if (e.checked) {
         document.querySelectorAll("." + itemName).forEach(item => {
