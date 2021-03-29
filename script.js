@@ -95,7 +95,7 @@ function getSavedItems() {
 
         let patternItem = new RegExp(/item\d+$/)
         let patternStatus = new RegExp(/item\d+Status$/)
-        console.log(cookieName, cookieValue, patternItem.test(cookieName), patternStatus.test(cookieName))
+
         if (patternItem.test(cookieName)) {
             cookieItem = cookieName
             cookieText = cookieValue
@@ -104,6 +104,15 @@ function getSavedItems() {
 
             addItem(cookieItem, cookieText, cookieStatus)
         }
+    })
+}
+
+function clearAllCookies() {
+    let cookies = document.cookie.split(";")
+
+    cookies.map(c => {
+        let cookieName = c.split("=")[0]
+        setCookie(cookieName, "", -1)
     })
 }
 
@@ -120,4 +129,20 @@ function setCookie(cname, cvalue, cstatus, exdays) {
     let cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
     document.cookie = cookie
     console.log(cookie)
+}
+
+function getCookie(cname) {
+    var name = cname + "="
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split(';')
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i]
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1)
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length)
+        }
+    }
+    return ""
 }
