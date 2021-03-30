@@ -107,7 +107,7 @@ function getSavedItems() {
         } else if (patternStatus.test(cookieName)) {
             cookieStatus = cookieValue
 
-            addItem(cookieItem, cookieText, cookieStatus)
+            if (cookieText != "" && cookieStatus != "") addItem(cookieItem, cookieText, cookieStatus)
         }
     })
 }
@@ -129,7 +129,7 @@ function setCookies(itemName, itemText, itemStatus, exdays) {
     setCookie(itemName + "Status", itemStatus, exdays)
 }
 
-function setCookie(cname, cvalue, cstatus, exdays) {
+function setCookie(cname, cvalue, exdays) {
     let d = new Date()
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
     let expires = "expires=" + d.toUTCString()
