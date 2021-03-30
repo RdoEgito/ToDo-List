@@ -1,4 +1,5 @@
 let items = []
+let expiration = 800
 
 function addItem(itemName, itemValue, itemStatus) {
     items.sort()
@@ -18,7 +19,7 @@ function addItem(itemName, itemValue, itemStatus) {
     textBox.classList.add("itemText")
     textBox.setAttribute("type", "text")
     textBox.setAttribute("value", itemValue)
-    textBox.setAttribute("oninput", "setCookies(this.classList[0], this.value, this.classList[1], 100)")
+    textBox.setAttribute("oninput", "setCookies(this.classList[0], this.value, this.classList[1], expiration)")
 
     const closeButton = document.createElement("button")
     closeButton.classList.add(itemName)
@@ -77,14 +78,14 @@ function checkBoxClicked(e) {
             item.classList.remove("active")
         })
         divInactiveItems.appendChild(containerDiv)
-        setCookies(itemName, textValue, "inactive", 100)
+        setCookies(itemName, textValue, "inactive", expiration)
     } else {
         document.querySelectorAll("." + itemName).forEach(item => {
             item.classList.add("active")
             item.classList.remove("inactive")
         })
         divActiveItems.appendChild(containerDiv)
-        setCookies(itemName, textValue, "active", 100)
+        setCookies(itemName, textValue, "active", expiration)
     }
 }
 
